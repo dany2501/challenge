@@ -1,5 +1,6 @@
 const validUrl = require('valid-url');
 const Response = require('../dto/TransformRS');
+const Error = require('../dto/Error')
 const transform = (req, res) => {
 
     let imageURL = req.body.link;
@@ -15,7 +16,6 @@ const transform = (req, res) => {
         return res.status(201).json(response);
 
     } else {
-
         // Si no se envía la url de la imagen, mostamos un error.
         response.success = false
         response.error = new Error(401, "Url inválida")
